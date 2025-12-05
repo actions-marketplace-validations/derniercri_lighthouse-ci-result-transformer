@@ -5,8 +5,18 @@ inputs:
   resultsPath:
     description: The LightHouse CI outputs.resultsPath
     required: true
+  githubToken:
+    description: 'Github token of the repository (automatically created by Github)'
+    default: ${{ github.token }}
+    required: false
+  githubComment:
+    description: Should the action post the result as a comment
+    default: 'false'
   slackWebhookUrl:
     description: The URL of the Slack Webhook
+  repository:
+    description: 'The full name of the repository containing the issue or pull request.'
+    default: ${{ github.repository }}
 
 runs:
   using: node16
